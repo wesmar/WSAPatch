@@ -9,7 +9,7 @@
 
 ## The Problem
 
-WSA (WSABuilds / MustardChef **2407.40000.4.0**) crashes after exactly **35–40 seconds** on
+WSA (WSABuilds / MustardChef **2407.40000.4.0**) crashes within **a few seconds to ~40 seconds** on
 Windows 11 Insider Preview **build 10.0.28000** (Canary / 26H1).  
 Everything starts fine — the subsystem loads, apps launch — and then `WsaClient.exe` silently dies.
 
@@ -110,7 +110,7 @@ The crash is specific to 26H1 Canary.
 
 ### Step 5 — Verifying the patches
 
-After applying both patches, Opera for Android launched and stayed running past the 40-second
+After applying both patches, Opera for Android launched and stayed running past the previous crash point
 mark. File Manager+ also worked. WSA remained stable.
 
 The URI handler registration is silently skipped — deep links declared statically in
