@@ -100,7 +100,7 @@ js   +0x26                 ; 78 26 — jump to error path
 for MSIX/UWP/Android apps at runtime. WSA calls it at startup so Windows knows which Android
 app should handle a given URI scheme.
 
-Starting around build 28000 Microsoft tightened the capability requirements for this API —
+At some point Microsoft tightened the capability requirements for this API —
 it now requires `restrictedAppUriHandlerHost` or equivalent package trust level.
 WSA's `AppxManifest.xml` declares `windows.appUriHandler` and `runFullTrust`, but that is
 no longer sufficient on 26H1 and later builds.
