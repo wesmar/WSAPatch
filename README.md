@@ -196,7 +196,7 @@ Patch 2: Ignore HRESULT from GetResults() (JS->NOP NOP)
 ## Requirements
 
 - **Target:** WSABuilds / MustardChef **2407.40000.4.0** (`WsaClient.exe` SHA-256 verified by anchor scan)
-- **OS:** Windows 11 (tested on build 10.0.28000.1896, Canary 26H1)
+- **OS:** Windows 11 (tested on build 10.0.28000.2113, Canary 26H1)
 - **Elevation:** Administrator required (UAC manifest embedded)
 
 ---
