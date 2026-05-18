@@ -10,7 +10,7 @@
 ## The Problem
 
 WSA (WSABuilds / MustardChef **2407.40000.4.0**) crashes within **a few seconds to ~40 seconds** on
-Windows 11 Insider Preview **build 10.0.28000** (Canary / 26H1).  
+Windows 11 **26H1** (build 10.0.28000+).  
 Everything starts fine — the subsystem loads, apps launch — and then `WsaClient.exe` silently dies.
 
 Exception code: **`STATUS_STOWED_EXCEPTION (0xC000027B)`**
@@ -103,10 +103,11 @@ app should handle a given URI scheme.
 Starting around build 28000 Microsoft tightened the capability requirements for this API —
 it now requires `restrictedAppUriHandlerHost` or equivalent package trust level.
 WSA's `AppxManifest.xml` declares `windows.appUriHandler` and `runFullTrust`, but that is
-no longer sufficient in the Canary channel.
+no longer sufficient on 26H1 and later builds.
 
-On production builds (22H2, 23H2) this code path is either not reached or the API succeeds.
-The crash is specific to 26H1 Canary.
+The change appears to have been introduced in mid-2025 or earlier — based on reports in the
+MustardChef issue tracker the crash affects various 26H1 builds, not just the latest ones.
+On older production releases (22H2, 23H2) this code path either goes unreached or the API succeeds.
 
 ### Step 5 — Verifying the patches
 
@@ -196,7 +197,7 @@ Patch 2: Ignore HRESULT from GetResults() (JS->NOP NOP)
 ## Requirements
 
 - **Target:** WSABuilds / MustardChef **2407.40000.4.0** (`WsaClient.exe` SHA-256 verified by anchor scan)
-- **OS:** Windows 11 (tested on build 10.0.28000.2113, Canary 26H1)
+- **OS:** Windows 11 26H1 (tested on build 10.0.28000.2113)
 - **Elevation:** Administrator required (UAC manifest embedded)
 
 ---
