@@ -111,8 +111,8 @@ On older production releases (22H2, 23H2) this code path either goes unreached o
 
 ### Step 5 — Verifying the patches
 
-After applying both patches, Opera for Android launched and stayed running past the previous crash point
-mark. File Manager+ also worked. WSA remained stable.
+After applying both patches, Android apps run stably — WSA no longer crashes.
+Verified with Opera for Android, File Manager+ and others.
 
 The URI handler registration is silently skipped — deep links declared statically in
 `AppxManifest.xml` remain registered; only the dynamic runtime update is omitted.
